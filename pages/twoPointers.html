@@ -25,55 +25,24 @@
     <main>
       <section id="linked" class="linked">
 
-        <h1>Linked Lists</h1>
+        <h1>Two Pointers Algorithm</h1>
         
         <p class="description">
-            Linked lists are data structures that consists of a series nodes. A node can be thought of
-            as a container for data.  Each node also contains a next reference that points to the next node in the list.
+            Two pointers is an useful algorithm used in search related problems, namely, sorted array and string problems. 
+            There are several versions of the two pointers algorithm. One version is fast and slow pointers. 
             
-            A major benefit of linked lists is that they allow for insertion and removal of elements without 
-            reorganization of the entire structure. 
-            
-            Linked lists are not indexed, so they cannot be directly accessed. Instead, they must be traversed until
-            the required data is reached. 
+            The fast pointer is interated faster than the slow. For example, when using nested for loops, the inner loop 
+            interates faster than the outer loop. Another example is in linked lists. You can create a fast pointer by interating
+            the head's next pointer: head.next for the slow and head.next.next for the fast pointer. In both examples, it allows you 
+            to perform comparisons such as in remove duplication problems. 
 
-            Linked list problems require both manipulation of next pointers and traversal of list through loops. 
+
 
         </p>
         
         <div class="code"><p>
 
-            public class Node{<br>
-                int val;<br>
-                Node next;<br>
-                Node(){}<br>
-                Node(int val){this.val=val;}<br>
-                Node(int val, Node next){this.val = val; this.next = next;}<br>
-            }<br>
-
-            public Node mergeLists( Node list1, Node list2) {<br>
-                Node prehead = new Node(-1);<br>
-
-                ListNode prev = prehead;<br>
-
-                while (list1 != null && list2 != null) {<br>
-                    if (list1.val <= list2.val) {<br>
-                        prev.next = list1;<br>
-                        list1 = list1.next;<br>
-                    } else {<br>
-                        prev.next = list2;<br>
-                        list2 = list2.next;<br>
-                    }<br>
-                    prev = prev.next;<br>
-                }<br>
-        
-                // At least one of l1 and l2 can still have nodes at this point, so connect<br>
-                // the non-null list to the end of the merged list.<br>
-                prev.next = list1 == null ? list2 : list1;<br>
-        
-                return prehead.next;                <br>
-
-            }
+            
         </p>
         </div>
          

@@ -41,6 +41,22 @@
         </p>
         
         <div class="code"><p>
+          From LeetCode: 
+
+          private void swap(char[] str, int i, int j) {
+            char temp = str[i];
+            str[i] = str[j];
+            str[j] = temp;
+        }
+
+        public void reverse(char[] str) {
+          int i = 0, j = str.length - 1;
+          while (i < j) {
+              swap(str, i, j);
+              i++;
+              j--;
+          }
+      }
 
             
         </p>

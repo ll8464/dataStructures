@@ -23,57 +23,56 @@
       </p>
     </nav>
     <main>
-      <section id="linked" class="linked">
+      <section id="graph" class="graph">
 
-        <h1>Linked Lists</h1>
+        <h1>Graph</h1>
         
         <p class="description">
-            Linked lists are data structures that consists of a series nodes. A node can be thought of
-            as a container for data.  Each node also contains a next reference that points to the next node in the list.
-            
-            A major benefit of linked lists is that they allow for insertion and removal of elements without 
-            reorganization of the entire structure. 
-            
-            Linked lists are not indexed, so they cannot be directly accessed. Instead, they must be traversed until
-            the required data is reached. 
+          The Graph data structure is potentially the most representative of daily life. It is a non-linear structure
+          that can be used to represent relationships among data points called vertices. The connections between these
+          vertices are called edges. 
+          
+          There are many kinds of graphs out there. The three that we will be focusing on are undirected graphs, directed
+          graphs, and weighted graphs.
 
-            Linked list problems require both manipulation of next pointers and traversal of list through loops. 
+          Undirected graphs' edges do not have a direction which means there is a two-way relationship being represented.
+
+          Directed graphs' edges have a direction. One way to visualize this is unrequited love. One vertex "loves", 
+          or points, to another. However, the second vertex does not point back. 
+
+          In weighted graphs, the edge themselves has an associated weight or value. It can be any metric such as time, 
+          distance, etc. A common weighted graph is a map. The distance from point A to B is measured in distance, and that 
+          distance is the edge between to two locations. 
+
+          Let's go over some terminology unique to graphs. A Path is the sequence of vertices from one vertex to another, there 
+          can be multiple paths. A Cycle is a path where the start and end vertex is the same. A negative weight cycle 
+          is when the sum of all edges in a cycle is negative. Degree of a vertex is the number of edges connecting the vertex.
+          The term In-Degree applies to directed graphs. In-degree is the number of edges being directed to that particular vertex. 
+          Out-Degree is the number of edges being directed from a particular vertex. 
+
+          Disjoint Sets, aka union-find, are graph data structures that are often used to address the connectivity between the 
+          components of a network. The parent node is the direct parent of a vertex. The root node, aka head node, is a node 
+          without a parent node. It can also be stated that a root node is its own parent. This is important when determining 
+          how vertices are connected among each other. 
+
+          In Disjoint sets, you are creating unions (or sets) among vertices. A root node must be declared among the set. 
+          To determine if a vertex have connectivity with another vertex, they must have the same root node. If they don't,
+          they must merged and with a new root node declared. This causes all child nodes from the previously separate Sets 
+          to now be related. 
+
+          To solve disjoint set problems, you need a structure such as an array, to keep track of both value and index. The 
+          index correspond to the vertices while the values correspond to the parent vertex. There are two main functions in 
+          disjoint problems, the find() and union() functions. The find function returns the root node of a set. The union
+          function connects the elements together by choosing their root node to be the same or and allows us to declare the
+          parent node of a vertex.
+          https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3881/
+            
 
         </p>
         
         <div class="code"><p>
 
-            public class Node{<br>
-                int val;<br>
-                Node next;<br>
-                Node(){}<br>
-                Node(int val){this.val=val;}<br>
-                Node(int val, Node next){this.val = val; this.next = next;}<br>
-            }<br>
-
-            public Node mergeLists( Node list1, Node list2) {<br>
-                Node prehead = new Node(-1);<br>
-
-                ListNode prev = prehead;<br>
-
-                while (list1 != null && list2 != null) {<br>
-                    if (list1.val <= list2.val) {<br>
-                        prev.next = list1;<br>
-                        list1 = list1.next;<br>
-                    } else {<br>
-                        prev.next = list2;<br>
-                        list2 = list2.next;<br>
-                    }<br>
-                    prev = prev.next;<br>
-                }<br>
-        
-                // At least one of l1 and l2 can still have nodes at this point, so connect<br>
-                // the non-null list to the end of the merged list.<br>
-                prev.next = list1 == null ? list2 : list1;<br>
-        
-                return prehead.next;                <br>
-
-            }
+            
         </p>
         </div>
          
